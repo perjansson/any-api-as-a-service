@@ -1,0 +1,22 @@
+{
+  "family": "any-api-as-a-service",
+  "executionRoleArn": "arn:aws:iam::321846507058:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "any-api-as-a-service",
+      "image": "321846507058.dkr.ecr.us-east-1.amazonaws.com/ecsTaskExecutionRole:latest",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
