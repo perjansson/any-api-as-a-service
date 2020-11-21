@@ -1,31 +1,18 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-export async function getServerSideProps() {
-  const apis = [
-    { id: 1, name: 'Api 1' },
-    { id: 2, name: 'Api 2' },
-    { id: 3, name: 'Api 3' },
-  ]
+export default function Api() {
+  const router = useRouter()
+  const { id } = router.query
 
-  return {
-    props: { apis },
-  }
-}
-
-export default function Home({ apis }) {
   return (
     <div className="container">
       <Head>
-        <title>API as a service</title>
+        <title>API</title>
       </Head>
 
-      <main className="apis">
-        {apis.map(({ id, name }) => (
-          <Link key={id} href={`/apis/${id}`}>
-            <a>{name}</a>
-          </Link>
-        ))}
+      <main className="api">
+        <div>API # {id}</div>
       </main>
 
       <style jsx>{`
@@ -47,28 +34,12 @@ export default function Home({ apis }) {
           align-items: center;
         }
 
-        .apis {
-          color: #0070f3;
+        .api {
+          color: #f33500;
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
           text-align: center;
-        }
-
-        .apis > a {
-          color: #0070f3;
-          margin: 10px 0;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        a:hover,
-        a:focus,
-        a:active {
-          text-decoration: underline;
         }
       `}</style>
 
