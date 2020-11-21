@@ -7,5 +7,5 @@
 
 ## Run prod build with Docker
 
-1. `$ docker build -t any-api-as-a-service .`
-2. `$ docker run -it -p 3000:3000 any-api-as-a-service`
+1. `$ make build`
+2. `$ make run`
